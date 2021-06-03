@@ -536,6 +536,7 @@ export class Explorer {
       };
       xhr.open("PUT", this.fullHostname + file.path);
       xhr.setRequestHeader("XSRF-Token", this.user.xsrftoken);
+      xhr.setRequestHeader("X-OC-Mtime", Math.round(file.lastModified / 1000));
       xhr.send(file);
     });
   }
