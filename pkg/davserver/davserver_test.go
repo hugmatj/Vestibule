@@ -41,9 +41,7 @@ func TestEncryption(t *testing.T) {
 }
 
 func Test_setModTime(t *testing.T) {
-	// Prepare test function
-	type doFn func(method string, url string, headers map[string]string, payload string, expectedStatus int, expectedBody string) string
-	test := func(do doFn) {
+	test := func(do tester.DoFn) {
 		// Time is now
 		now := time.Now()
 		time.Sleep(1 * time.Second)
